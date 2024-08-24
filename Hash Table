@@ -1,0 +1,71 @@
+HT=[[] for _ in range (10)]
+print(HT)
+
+def insert (HT,key,value):
+	
+	hpos=hash(key)%10
+	print(hpos)
+	bucket=HT[hpos]
+	duplicate=False
+	for i,kv in enumerate(bucket):
+		k,v=kv
+		if(k==key):
+			duplicate=True
+		else:
+			duplicate=False
+	if(duplicate==False):
+		bucket.append((key,value))
+		print(bucket)
+		print(HT)
+	else:
+		print("Record is Duplicate can not addd in dictionary")
+
+def search(HT,key,value):
+	hpos=hash(key)%10
+	bucket=HT[hpos]
+	flag=0
+	for i,kv in enumerate(bucket):
+		k,v=kv
+		if(m==key):
+			print("Key is found ")
+		else:
+			flag=1
+	if(flag==1):
+			print("key is not found")
+
+def delete(HT,key,value):
+	hpos=hash(key)%10
+	bucket=HT[hpos]
+	duplicate=False
+	for i,kv in enumerate(bucket):
+		k,v=kv
+		if(k==key):
+			duplicate=True
+			break
+	if duplicate:
+		del bucket[i]
+		print("Deleted key is = ",key)
+		print("Deleted value is ",value)
+		print(HT)
+	else:
+		print("KEY and values are not deleted ")
+
+while True:
+	print("###### Hash Table ######")
+	print("\n1.Insertion\n2.Search\n3.deletion ")
+	ch=int(input("enter the choice = "))
+	if(ch==1):
+		key=int(input("Enter the key  = "))
+		value=str(input("Enter the value = "))
+		insert(HT,key,value)
+	if(ch==2):
+		m=int(input("Enter the key  = "))
+		value=str(input("Enter the value = "))
+		search(HT,key,value)
+	if(ch==3):
+		key=int(input("Enter the key  = "))
+		value=str(input("Enter the value = "))
+		delete(HT,key,value)
+	if(ch==0):
+		exit()
+
