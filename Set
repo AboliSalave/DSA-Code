@@ -1,0 +1,101 @@
+set_A=set()
+set_B=set()
+
+n=int(input("enter limit"))
+def addA():
+	n=int(input("enter the limit"))
+	for i in range(n):
+		ele=int(input("enter the element"))
+		set_A.add(ele)
+	print(set_A)
+
+def addB():
+	n=int(input("enter limit"))
+	for i in range(n):
+		ele=int(input("enter the element"))
+		set_B.add(ele)
+	print(set_B)
+
+def remove():
+	key=int(input("elements to be remove"))
+	flag=0
+	for i in range(n):
+		if key in set_A:
+			set_A.remove(key)
+			break
+		else:
+			flag=1
+	if(flag==1):
+		print("not found")
+	print(set_A)
+
+def contain():
+	key=int(input("elements contain in set_A"))
+	print(key in set_A)
+
+def inter():
+	inter=set()
+	for key in set_A:
+		inter.add(key)
+	for key in set_B:
+		if key in set_A:
+			flag=0
+		else:
+			flag=1
+	print("intersection of A and B")
+def union():
+	uni=set()
+	for key in set_A:
+		uni.add(key)
+	for key in Set_B:
+		if key in set_A:
+			flag=0
+		else:
+			uni.add(key)
+print("union of A and B")
+
+flag=0
+def diff():
+	diff=set()
+for key in set_A:
+	diff.add(key)
+
+for key in set_B:
+	if key in set_A:
+		diff.remove(key)
+	else:
+		flag=0
+print("difference of A and B ")
+
+def subset():
+	sub=set()
+for key in set_B:
+	if key in set_A:
+		sub.add(key)
+		if(sub==b):
+			print("b is subset of a")
+	else:
+			print("b is not subset")
+
+while True:
+	print("################MENU##########################")
+	print("1.Add for set A\n2.Add for set B\n3.Remove\n4.Contain\n5.Intersection\n6.Union\n7.Difference\n8.Subset")
+	ch=int(input("enter the choice"))
+	if(ch==1):
+		addA()
+	if(ch==2):
+		addB()
+	if(ch==3):
+		remove()
+	if(ch==4):
+		contain()
+	if(ch==5):
+		inter()
+	if(ch==6):
+		union()
+	if(ch==7):
+		difference()
+	if(ch==8):
+		subset()
+	if(ch==9):
+		exit()
